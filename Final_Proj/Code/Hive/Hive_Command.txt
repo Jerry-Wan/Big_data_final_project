@@ -1,0 +1,14 @@
+beeline
+!connect jdbc:hive2://hm-1.hpc.nyu.edu:10000/
+use yw3743;
+create table number(year INT, month INT, day INT, number INT)
+row format delimited
+fields terminated by ','
+stored as textfile
+location '/user/yw3743/Final_Proj/Hive_Table/first_num';
+describe number;
+//After making the table we look at the day with the most number of sunspots.
+select * from number WHERE number IN(select Max(number) from number);
+//Then we choose to select mininum number to make sure the mininum is not below 0
+select * from number WHERE number IN(select Min(number) from number);
+
