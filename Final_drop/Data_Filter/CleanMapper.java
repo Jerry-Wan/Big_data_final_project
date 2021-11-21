@@ -20,8 +20,10 @@ public class CleanMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 	String[] splited = line.split(",");
 	try
 	{
+		//select year,month and date as the first part
 	    String cleanedData = splited[0]+'-'+splited[1]+'-'+splited[2];
 	    int number = Integer.parseInt(splited[4]);
+			//use number as the intwritable part
             context.write(new Text(cleanedData), new IntWritable(number));
 	}
 	catch(Exception e){
