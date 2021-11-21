@@ -3,7 +3,7 @@ import re
 
  '''
  shell script part before working on this:
- ls > years.txt
+ ls years_data > years.txt
  '''
 f=open('years.txt')
 c=f.read()
@@ -11,7 +11,7 @@ c=f.read()
 f.close()
 f1 = open('total_data.txt',"a")
 for filename in c.split('\n'):
-    f = open(filename+"/"+filename+".TBL")
+    f = open("years_data/"+filename+"/"+filename+".TBL")
     c = f.read()
     f.close()
     f1.write(c)
